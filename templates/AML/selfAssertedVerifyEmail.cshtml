@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>User details</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <style id="common">
+    #AmazonExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/amazon.svg);
+    }
+
+    #AmazonExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/amazon.svg);
+    }
+
+    #FacebookExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/facebook.svg);
+    }
+
+    #FacebookExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/facebook.svg);
+    }
+
+    #GitHubExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/github.svg);
+    }
+
+    #GitHubExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/github.svg);
+    }
+
+    #AppleExchange,
+    #AppleManagedExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/apple.svg);
+    }
+
+    #AppleExchange:hover,
+    #AppleManagedExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/apple.svg);
+    }
+
+    #GoogleExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/google.svg);
+    }
+
+    #GoogleExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/google.svg);
+    }
+
+    #LinkedInExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/linkedin.svg);
+    }
+
+    #LinkedInExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/linkedin.svg);
+    }
+
+    #MicrosoftAccountExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/microsoft.svg);
+    }
+
+    #MicrosoftAccountExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/microsoft.svg);
+    }
+
+    #QQExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/qq.svg);
+    }
+
+    #QQExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/qq.svg);
+    }
+
+    #TwitterExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/twitter.svg);
+    }
+
+    #TwitterExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/twitter.svg);
+    }
+
+    #WeChatExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/wechat.svg);
+    }
+
+    #WeChatExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/wechat.svg);
+    }
+
+    #WeiboExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/weibo.svg);
+    }
+
+    #WeiboExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/weibo.svg);
+    }
+
+    .buttons #cancel:before {
+      content: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/images/left-arrow.svg);
+    }
+  </style>
+  <style id="idpselector">
+    #SignInWithLogonNameExchange,
+    #SignUpWithLogonEmailExchange,
+    #SignUpWithLogonNameExchange {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/colored/local.svg);
+    }
+
+    #SignInWithLogonNameExchange:hover,
+    #SignUpWithLogonEmailExchange:hover,
+    #SignUpWithLogonNameExchange:hover {
+      background-image: url(https://AstonMartinCustomerTest.b2clogin.com/static/tenant/templates/idp_logos/white/local.svg);
+    }
+
+    #SignUpWithLogonEmailExchange.text-link {
+      background-image: none;
+      background-color: transparent !important;
+    }
+
+    #SignUpWithLogonEmailExchange.text-link:hover {
+      background-image: none;
+      background-color: transparent !important;
+    }
+  </style>
+
+
+  <link href="https://amlconncustomerstorage.blob.core.windows.net/b2c-assets/css/fonts.css" rel="stylesheet"
+    type="text/css" data-preload="true" />
+  <link href="https://amlconncustomerstorage.blob.core.windows.net/b2c-assets/css/shared.css" rel="stylesheet"
+    type="text/css" data-preload="true" />
+  <link href="https://amlconncustomerstorage.blob.core.windows.net/b2c-assets/css/selfAsserted.css" rel="stylesheet"
+    type="text/css" data-preload="true" />
+
+  <style>
+    #email_ver_but_edit {
+      display: none !important;
+    }
+
+    #cancel {
+      display: none !important;
+    }
+  </style>    
+
+  <script lang="JavaScript">
+
+    var applyB2CAddOns = function () {
+      var continueBtn = document.querySelector("#continue");
+      var verifyCodeBtn = document.querySelector("#email_ver_but_verify");
+      
+      if (continueBtn) {
+        continueBtn.style.display = 'none';
+      }
+
+      // Adding auto submission once found it is a email verification page.
+      verifyCodeBtn.onclick = function () {
+
+
+        // Continue the page once email is validated.
+        var verifyInterval = setInterval(function () {
+          if ($element.verificationInfo.email
+            && $element.verificationInfo.email.confirmation
+            && $element.verificationInfo.email.confirmation.success) {
+            clearInterval(verifyInterval);
+
+            continueBtn.style.display = 'inline-block';
+
+            const emailObj = document.querySelector("#email");
+            if (emailObj && emailObj !== null && emailObj !== undefined) emailObj.style.display = "none";
+            const emailLabelObj = document.querySelector("#email_label");
+            if (emailLabelObj && emailLabelObj !== null && emailLabelObj !== undefined) emailLabelObj.style.display = "none";
+          }
+        }, 100);
+
+
+        // Hide Continue button if 'user with specified credentials could not be found' error is displayed
+        var hideContinueButtonInterval = setInterval(function () {
+
+          if ($(document.querySelector("#claimVerificationServerError")).is(':visible')) {
+            continueBtn.style.display = 'none';
+          }
+          else {
+            continueBtn.style.display = 'inline-block';
+          }
+        }, 100);        
+      }
+
+      // move item errors below the input boxes
+      var itemErrors = document.querySelectorAll("#api .error.itemLevel");
+      itemErrors.forEach((itemError) => {
+        const parent = itemError.parentElement;
+        const input = parent.querySelector("input");
+        if (input && input !== null && input !== undefined) {
+          input.after(itemError);
+        }
+      });         
+      
+      // move page errors right above the buttons
+      const buttonsObj = document.querySelector("#api form .buttons button");
+      if (buttonsObj && buttonsObj !== null && buttonsObj !== undefined) {
+        const pageErrors = document.querySelectorAll("#api .error.pageLevel, #api .error.verificationErrorText");
+        pageErrors.forEach((pageError) => {        
+          //buttonsObj.parentElement.insertBefore(pageError, buttonsObj);
+          buttonsObj.before(pageError);
+        });          
+      }
+    };
+
+    (function onPageReady() {
+      var intervalHandle = setInterval(
+        function () {
+          if (window.pageReady) {
+            applyB2CAddOns();
+            clearInterval(intervalHandle);
+          }
+        }, 50);
+    }());
+  </script>
+
+</head>
+
+<body>
+  <div id="background_branding_container" data-tenant-branding-background-color="true">
+  </div>
+  <div class="container  self_asserted_container " role="presentation">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img class="companyLogo" data-tenant-branding-logo="false"
+              src="https://amlconncustomerstorage.blob.core.windows.net/b2c-assets/images/logo.svg" alt="Company Logo">
+            <div id="api" role="main">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Sign up or sign in</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style id="common">
+        #AmazonExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/amazon.svg);
+        }
+        #AmazonExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/amazon.svg);
+        }
+        #FacebookExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/facebook.svg);
+        }
+        #FacebookExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/facebook.svg);
+        }
+        #GitHubExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/github.svg);
+        }
+        #GitHubExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/github.svg);
+        }
+        #AppleExchange,#AppleManagedExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/apple.svg);
+        }
+        #AppleExchange:hover,#AppleManagedExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/apple.svg);
+        }
+        #GoogleExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/google.svg);
+        }
+        #GoogleExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/google.svg);
+        }
+        #LinkedInExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/linkedin.svg);
+        }
+        #LinkedInExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/linkedin.svg);
+        }
+        #MicrosoftAccountExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/microsoft.svg);
+        }
+        #MicrosoftAccountExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/microsoft.svg);
+        }
+        #QQExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/qq.svg);
+        }
+        #QQExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/qq.svg);
+        }
+        #TwitterExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/twitter.svg);
+        }
+        #TwitterExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/twitter.svg);
+        }
+        #WeChatExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/wechat.svg);
+        }
+        #WeChatExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/wechat.svg);
+        }
+        #WeiboExchange {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/weibo.svg);
+        }
+        #WeiboExchange:hover {
+          background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/weibo.svg);
+        }
+        .buttons #cancel:before {
+            content: url(https://issimib2c.b2clogin.com/static/tenant/templates/images/left-arrow.svg);
+        }
+    </style>
+    <style id="idpselector">
+        #SignInWithLogonNameExchange, #SignUpWithLogonEmailExchange, #SignUpWithLogonNameExchange {
+            background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/colored/local.svg);
+        }
+        #SignInWithLogonNameExchange:hover, #SignUpWithLogonEmailExchange:hover, #SignUpWithLogonNameExchange:hover {
+            background-image: url(https://issimib2c.b2clogin.com/static/tenant/templates/idp_logos/white/local.svg);
+        }
+        #SignUpWithLogonEmailExchange.text-link {
+            background-image: none;
+            background-color: transparent !important;
+        }
+        #SignUpWithLogonEmailExchange.text-link:hover {
+            background-image: none;
+            background-color: transparent !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
+
+    <link href="css/shared.css" rel="stylesheet" type="text/css" data-preload="true"/>        
+    <link href="css/unified.css" rel="stylesheet" type="text/css" data-preload="true"/>        
+    
+</head>
+<body>
+    <div id="background_branding_container" data-tenant-branding-background-color="false">
+      <img data-tenant-branding-background="true" src="images/background.png" alt="Illustration"/>    
+    </div>
+    <div class="container  unified_container " role="presentation">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                      <img class="companyLogo" data-tenant-branding-logo="true" src="images/logo.svg" alt="Company Logo">
+                        <!-- <div id="api" role="main">
+                        </div> -->
+                        <div id="api" role="main">
+                          <div class="heading">
+                            <h1 role="heading">Sign in</h1>
+                          </div>
+                            <div class="claims-provider-list-buttons social" aria-label="Sign in with your social account" role="form">
+                              <div class="intro">
+                                <h2 aria-level="1">Sign in with your social account</h2>
+                              </div>
+                              <div class="options">
+                                  <div>
+                                      <button class="accountButton firstButton claims-provider-selection" id="MicrosoftAccountExchange" role="link" autofocus="">Microsoft</button>
+                                  </div>
+                                          </div>
+                            </div>
+                    
+                            <div class="divider">
+                              <h2>OR</h2>
+                            </div>
+                          <form id="localAccountForm" action="JavaScript:void(0);" class="localAccount" aria-label="Sign in with your email address">
+                            <div class="intro">
+                              <h2 aria-level="1">
+                                Sign in with your email address
+                              </h2>
+                            </div>
+                            <div class="error pageLevel" aria-hidden="true" role="alert" style="display: none;">
+                              <p></p>
+                            </div>
+                            <div class="entry">
+                              <div class="entry-item">
+                                <label for="email">
+                                  Email Address
+                                </label>
+                                <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
+                                  <p></p>
+                                </div>
+                                <input type="email" id="email" name="Email Address" title="Please enter a valid Email Address" pattern="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" autofocus="" placeholder="Email Address" aria-label="Email Address">
+                              </div>
+                                <div class="entry-item">
+                                  <div class="password-label">
+                                    <label for="password">Password</label>
+                                        <a id="forgotPassword" href="/issimib2c.onmicrosoft.com/B2C_1_SignUpAndSignIn/api/CombinedSigninAndSignup/forgotPassword?csrf_token=Vjc0Z3lvVVNiTi9nWkRjV2NXNGNzUm9EcHU2VzRiTmMrNmdpbjhnelNuaFdqVU9oSDArQkpFelJmQm9qUkZVWlQ3c0JjYnFVNVBibFc2b1VndnJLNmc9PTsyMDIyLTEwLTE4VDExOjMwOjUxLjkyNzYwNjdaO0QxV2ovQjFiRGF1R2c3cmhmbWZuVGc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIyZTZhMTYwMi0xMmI5LTQwZTgtYjliZi0yNmZkNDFmNjY4NDAifQ&amp;p=B2C_1_SignUpAndSignIn">Forgot your password?</a>
+                                                  </div>
+                                  <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                    <p role="alert"></p>
+                                  </div>
+                                  <input type="password" id="password" name="Password" placeholder="Password" aria-label="Password" autocomplete="current-password" aria-required="true">
+                                              </div>
+                              <div class="working"></div>
+                    
+                    
+                              <div class="buttons">
+                                <button id="next" type="submit" form="localAccountForm">Sign in</button>
+                              </div>
+                            </div>
+                                  <div class="divider">
+                                    <h2>OR</h2>
+                                  </div>
+                                  <div class="create">
+                                    <p>
+                                      Don't have an account?<a id="createAccount" href="/issimib2c.onmicrosoft.com/B2C_1_SignUpAndSignIn/api/CombinedSigninAndSignup/unified?local=signup&amp;csrf_token=Vjc0Z3lvVVNiTi9nWkRjV2NXNGNzUm9EcHU2VzRiTmMrNmdpbjhnelNuaFdqVU9oSDArQkpFelJmQm9qUkZVWlQ3c0JjYnFVNVBibFc2b1VndnJLNmc9PTsyMDIyLTEwLTE4VDExOjMwOjUxLjkyNzYwNjdaO0QxV2ovQjFiRGF1R2c3cmhmbWZuVGc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiIyZTZhMTYwMi0xMmI5LTQwZTgtYjliZi0yNmZkNDFmNjY4NDAifQ&amp;p=B2C_1_SignUpAndSignIn">Sign up now</a>
+                                    </p>
+                                  </div>
+                          </form>
+                      </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
