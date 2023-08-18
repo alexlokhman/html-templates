@@ -147,65 +147,21 @@
   </style>
 
   <script lang="JavaScript">
-    // This example shows how to remove the "Continue" button on the email verification page in favor of automatic redirect when email is successfully verified.
 
     var applyB2CAddOns = function () {
-      // var cancelBtn = document.querySelector("#cancel");
       var continueBtn = document.querySelector("#continue");
       var verifyCodeBtn = document.querySelector("#email_ver_but_verify");
       
-
-      // Make sure always remove the continue button if it exists.
       if (continueBtn) {
-        // continueBtn.remove();
         continueBtn.style.display = 'none';
       }
-
-      // Correcting the order of sendCode and VerifyCode order.
-      // sendNewCodeBtn.remove();
-      // verifyCodeBtn.parentElement.insertBefore(sendNewCodeBtn, verifyCodeBtn);
-
-      // var readyToRedirect = false;
-      // $element.confirm = function () {
-      //   readyToRedirect = true;
-      // };
-
-      // var failedToRedirect = false;
-
-      // Overriding following two methods so that we can detect the failure calling these two methods.
-      // $element.onError = function (code, message, isSendingQuietly) {
-      //   if (isSendingQuietly) {
-      //     $diags.sendQuietDiagnostics(code, message);
-      //   } else {
-      //     $diags.sendDiagnostics(code, message);
-      //   }
-      //   failedToRedirect = true;
-      //   return false;
-      // }
-
-      // // Sets error message and shows it to the user.
-      // $element.setAndShowErrorMessage = function (id, msg) {
-      //   var $id = $("#" + id);
-
-      //   if (msg) {
-      //     $id.text(msg);
-      //   }
-
-      //   // Add the aria attributes and tabindex allowing the message to receive focus
-      //   $id.attr({ "role": "alert", "aria-live": "polite", "aria-hidden": "false", "tabindex": "1" }).css("display", "block");
-
-      //   failedToRedirect = true;
-      // }
 
       // Adding auto submission once found it is a email verification page.
       verifyCodeBtn.onclick = function () {
 
-        // failedToRedirect = false;
-        // readyToRedirect = false;
 
         // Continue the page once email is validated.
         var verifyInterval = setInterval(function () {
-          // if ($element.verificationInfo.emailVerificationControl) {
           if ($element.verificationInfo.email
             && $element.verificationInfo.email.confirmation
             && $element.verificationInfo.email.confirmation.success) {
@@ -213,33 +169,44 @@
 
             continueBtn.style.display = 'inline-block';
 
-            // $i2e.redirectToServer("confirmed");
-            // $element.confirm();
-            // cancelBtn.style.display = "none";
-            // changeEmailBtn.style.display = "none";
+            const emailObj = document.querySelector("#email");
+            if (emailObj && emailObj !== null && emailObj !== undefined) emailObj.style.display = "none";
+            const emailLabelObj = document.querySelector("#email_label");
+            if (emailLabelObj && emailLabelObj !== null && emailLabelObj !== undefined) emailLabelObj.style.display = "none";
           }
         }, 100);
 
-        // $element.verify();
 
-        // Confirm the page for redirect once server side validate is passed.
-        // var confirmInterval = setInterval(function () {
-        //   if (readyToRedirect) {
-        //     clearInterval(confirmInterval);
-        //     // clearInterval(failedInterval);
-        //     $i2e.redirectToServer("confirmed");
-        //     return false;
-        //   }
-        // }, 50);
+        // Hide Continue button if 'user with specified credentials could not be found' error is displayed
+        var hideContinueButtonInterval = setInterval(function () {
 
-        // Confirm the page for redirect once server side validate is passed.
-        // var failedInterval = setInterval(function () {
-        //   if (failedToRedirect) {
-        //     clearInterval(failedInterval);
-        //     cancelBtn.style.display = "inline-block";
-        //     // changeEmailBtn.style.display = "inline-block";
-        //   }
-        // }, 50);
+          if ($(document.querySelector("#claimVerificationServerError")).is(':visible')) {
+            continueBtn.style.display = 'none';
+          }
+          else {
+            continueBtn.style.display = 'inline-block';
+          }
+        }, 100);        
+      }
+
+      // move item errors below the input boxes
+      var itemErrors = document.querySelectorAll("#api .error.itemLevel");
+      itemErrors.forEach((itemError) => {
+        const parent = itemError.parentElement;
+        const input = parent.querySelector("input");
+        if (input && input !== null && input !== undefined) {
+          input.after(itemError);
+        }
+      });         
+      
+      // move page errors right above the buttons
+      const buttonsObj = document.querySelector("#api form .buttons button");
+      if (buttonsObj && buttonsObj !== null && buttonsObj !== undefined) {
+        const pageErrors = document.querySelectorAll("#api .error.pageLevel, #api .error.verificationErrorText");
+        pageErrors.forEach((pageError) => {        
+          //buttonsObj.parentElement.insertBefore(pageError, buttonsObj);
+          buttonsObj.before(pageError);
+        });          
       }
     };
 
